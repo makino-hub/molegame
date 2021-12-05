@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="index.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>モグラ叩き</title>
+</head>
+<script>
+    /* ピッチインピッチアウトによる拡大縮小を禁止 */
+    document.documentElement.addEventListener('touchstart', function (e) {
+    if (e.touches.length >= 2) {e.preventDefault();}
+    }, {passive: false});
+    /* ダブルタップによる拡大を禁止 */
+    var t = 0;
+    document.documentElement.addEventListener('touchend', function (e) {
+    var now = new Date().getTime();
+    if ((now - t) < 350){
+      e.preventDefault();
+    }
+    t = now;
+    }, false);
+  </script>
+  <style>
+    body , input , textarea , select {
+    /* 入力欄にフォーカスが当たっても拡大しない */
+      font-size:17px;
+    }
+  </style>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xl">
+                <div class="mx-auto  main-body ">
+                    <div class="mode initial-mode">〜　初級モード　〜</div>
+                    <div class="top-area">
+                        <div class="start-btn-area">
+                            <button id="start-button" type="button" class="btn btn-secondary">Start</button>
+                            <button id="back-button" type="button" class="btn btn-danger">Back to menu</button>
+                        </div>
+                        <div id="score"></div>
+                        <div id="time"></div>
+                    </div>
+
+                    <div id="main_fild">
+                        <ul class="circle_ul  circle_li_th">
+                            <li class="circle_li ">
+                                <div class="circle">
+                                    <div class="hide"></div>
+                                </div>
+                            </li>
+                            <li class="circle_li ">
+                                <div class="circle">
+                                    <div class="hide"></div>
+                                </div>
+                            </li>
+                            <li class="circle_li "><div class="circle">
+                                <div class="hide"></div>
+                            </div>
+                        </li>
+                        </ul>
+                        <ul class="circle_ul circle_li_se">
+                            <li class="circle_li ">
+                                <div class="circle">
+                                    <div class="hide"></div>
+                                </div>
+                            </li>
+                            <li class="circle_li ">
+                                <div class="circle">
+                                    <div class="hide"></div>
+                                </div>
+                            </li>
+                        </ul>
+                        <ul class="circle_ul circle_li_th" >
+                            <li class="circle_li ">
+                                <div class="circle">
+                                    <div class="hide"></div>
+                                </div>
+                            </li>
+                            <li class="circle_li ">
+                                <div class="circle">
+                                    <div class="hide"></div>
+                                </div>
+                            </li>
+                            <li class="circle_li ">
+                                <div class="circle">
+                                    <div class="hide"></div>
+                                </div>
+                            </li>
+                        </ul>
+                        <ul class="circle_ul circle_li_se">
+                            <li class="circle_li ">
+                                <div class="circle">
+                                    <div class="hide"></div>
+                                </div>
+                            </li>
+                            <li class="circle_li ">
+                                <div class="circle">
+                                    <div class="hide"></div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="initial.js"></script>
+</body>
+</html>
