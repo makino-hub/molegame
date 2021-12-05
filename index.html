@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="index.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>モグラ叩き</title>
+</head>
+<script>
+    /* ピッチインピッチアウトによる拡大縮小を禁止 */
+    document.documentElement.addEventListener('touchstart', function (e) {
+    if (e.touches.length >= 2) {e.preventDefault();}
+    }, {passive: false});
+    /* ダブルタップによる拡大を禁止 */
+    var t = 0;
+    document.documentElement.addEventListener('touchend', function (e) {
+    var now = new Date().getTime();
+    if ((now - t) < 350){
+      e.preventDefault();
+    }
+    t = now;
+    }, false);
+  </script>
+  <style>
+    body , input , textarea , select {
+    /* 入力欄にフォーカスが当たっても拡大しない */
+      font-size:17px;
+    }
+  </style>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xl">
+                <div class="mx-auto menu-body">
+                    <div class="title">モグラ叩きゲーム</div>
+                    <div class="menu">Menu</div>
+                    <div class="select-mode">
+                        <button id="beginner-mode" class="btn-style btn-begi">初心者</button>
+                        <button id="intermediate-mode" class="btn-style btn-inter">中級者</button>
+                        <button id="senior-mode" class="btn-style btn-senior">上級者</button>
+                    </div>
+                    <div class="mole-area">
+                        <li class="menu_circle_li ">
+                            <div class="menu_circle">
+                                <div class="menu_hide"></div>
+                            </div>
+                        </li>
+                        <li class="menu_circle_li ">
+                            <div class="menu_circle">
+                                <div class="menu_hide"></div>
+                            </div>
+                        </li>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="index.js"></script>
+</body>
+</html>
